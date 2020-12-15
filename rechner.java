@@ -1,25 +1,34 @@
+/**
+ * COPYRIGHT © David Neidhart
+ */
+
 import java.util.*;
 public class rechner {
     public static void main(String[] args) {
+
         double[] vektorX = new double[2];
         double[] vektorY = new double[2];
         double[][] matrixA = new double[2][2];
-        String hauptMenu = "Menu\n\n1. a1 * x + b1 * y = c1\n2. a2 * x + b2 * y = c2\nLösen eines LGS\nBitte geben sie a1 ein: ";
+
         Scanner sc = new Scanner(System.in);
-        System.out.print(hauptMenu);
-        matrixA[0][0] = sc.nextDouble();
-        System.out.print("Geben sie b1 ein: ");
-        matrixA[0][1] = sc.nextDouble();
-        System.out.print("Geben sie c1 ein: ");
-        vektorY[0] = sc.nextDouble();
-        System.out.print("Geben sie a2 ein: ");
-        matrixA[1][0] = sc.nextDouble();
-        System.out.print("Geben sie b2 ein: ");
-        matrixA[1][1] = sc.nextDouble();
-        System.out.print("Geben sie c2 ein: ");
-        vektorY[1] = sc.nextDouble();
+
+        System.out.print("Menu\n\n1. a11 * x + a12 * y = b1\n2. a21 * x + a22 * y = b2\nLösen eines LGS\n");
+
+        for (int i = 0; i < matrixA.length; i++) {
+            for (int j = 0; j < matrixA[i].length; j++) {
+                System.out.println("a" + (i + 1) + (j + 1) + ": ");
+                matrixA[i][j] = sc.nextDouble();
+            }
+        }
+
+        for (int i = 0; i < vektorX.length; i++) {
+            System.out.println("b" + i + 1 + ": ");
+            vektorX[i] = sc.nextDouble();
+        }
+
         vektorX[0] = (vektorY[0] * matrixA[1][1] - vektorY[1] * matrixA[0][1]) / (matrixA[0][0] * matrixA[1][1] - matrixA[1][0] * matrixA[0][1]);
         vektorX[1] = (vektorY[1] * matrixA[0][0] - vektorY[0] * matrixA[1][0]) / (matrixA[0][0] * matrixA[1][1] - matrixA[1][0] * matrixA[0][1]);
+
         System.out.println("\nResult:\nx = " + (vektorX[0]) + "\ny = " + (vektorX[1]));
     }
 }
