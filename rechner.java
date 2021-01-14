@@ -21,9 +21,9 @@ public class rechner {
             }
         }
 
-        for (int i = 0; i < vektorX.length; i++) {
+        for (int i = 0; i < vektorY.length; i++) {
             System.out.println("b" + i + 1 + ": ");
-            vektorX[i] = sc.nextDouble();
+            vektorY[i] = sc.nextDouble();
         }
 
         vektorX[0] = (vektorY[0] * matrixA[1][1] - vektorY[1] * matrixA[0][1]) / (matrixA[0][0] * matrixA[1][1] - matrixA[1][0] * matrixA[0][1]);
